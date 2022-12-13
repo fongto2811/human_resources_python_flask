@@ -1,0 +1,12 @@
+.breadcrumb-item.active::before {
+    position: static;
+}
+
+.table {
+    font-size: 0.75 rem;
+}
+
+.status {
+    text-align: center;
+    margin-top: 5%;
+}
