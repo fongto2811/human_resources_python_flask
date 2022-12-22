@@ -1,9 +1,12 @@
-from cx_Oracle import connect
+from cx_Oracle import connect, DatabaseError
 
 class UserDAL:
     def __init__(self, username, password) -> None:
-        connect_string = '{0}/{1}@localhost:1521/xe'
         try:
-            conn = connect(connect_string.format(username,password))
-        except:
-            pass
+            conn = connect(user=username, password=password,host="localhost", port=1521, service_name="ORCLPDB.LOCALDOMAIN")
+            print(conn.version)
+        except DatabaseError as e:
+            print("There is a problem with Oracle", e)
+
+if __name__ == '__main__':
+    UserDAL('amy','amy')
