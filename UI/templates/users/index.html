@@ -16,30 +16,58 @@
     <table id="data-table" class="table table-striped" style="width:100%">
       <thead>
         <tr>
-          <th scope="col">STT</th>
-          <th scope="col">Mã khách hàng</th>
-          <th scope="col">Tên đơn vị</th>
-          <th scope="col">Tên khách hàng</th>
-          <th scope="col">Email</th>
-          <th scope="col">SĐT</th>
-          <th scope="col">MST</th>
-          <th scope="col">Nhóm khách hàng</th>
-          <th scope="col">Trạng thái</th>
-          <th scope="col">Hành động</th>
+          <th scope="col">ID</th>
+          <th scope="col">Username</th>
+          <th scope="col">Table Space</th>
+          <th scope="col">Quota</th>
+          <th scope="col">Status</th>
+          <th scope="col">Profile</th>
+          <th scope="col">Role</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
+        {%for p in user%}
         <tr>
-          <th scope="row">1</th>
-          <td>CNS</td>
-          <td>bao</td>
-          <td>Thach</td>
-          <td>thachtt@gmail.com</td>
-          <td>0356734540</td>
-          <td></td>
-          <td>Cong nghiep</td>
-          <td class="status badge bg-primary">Dang ap dung</td>
-          <td>s</td>
+          <th scope="row">{{p.id}}</th>
+          <td>{{p.username}}</td>
+          <td>{{p.tablespace}}</td>
+          <td>{{p.quota}}</td>
+          <td>{{p.status}}</td>
+          <td>{{p.profile}}</td>
+          <td>{{p.role}}</td>
+          <td>
+            <div class="button__action__container ">
+              <div class="button__action__wrapper">
+                <button class=" button__action--eye ">
+                  <i class='bx bxs-bullseye'></i>
+                </button>
+              </div>
+              <div class="button__action__wrapper">
+                <button class=" button__action--pencil ">
+                  <i class='bx bx-pencil'></i>
+                </button>
+              </div>
+              <div class="button__action__wrapper">
+                <button class=" button__action--lock ">
+                  <i class='bx bx-lock'></i>
+                </button>
+              </div>
+              <div class="button__action__wrapper">
+                <button class=" button__action--track ">
+                  <i class='bx bx-trash'></i>
+                </button>
+              </div>
+              <div class="button__action__wrapper">
+                <button class=" button__action--cabinet ">
+                  <i class='bx bx-cabinet'></i>
+                </button>
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        {%endfor%}
       </tbody>
     </table>
   </div>

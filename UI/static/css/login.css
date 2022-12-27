@@ -1,0 +1,30 @@
+html, body, main {
+    height: 100%;
+}
+
+.navbar-color {
+    background: #4723d9 !important;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 500px;
+    height: 50%;
+    padding: 15px;
+    margin: auto;
+}
+
+form {
+    margin-top: 40%;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: gray;
+}
+
+body {
+    margin: auto;
+}
