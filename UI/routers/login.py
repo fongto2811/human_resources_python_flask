@@ -8,10 +8,9 @@ login_bp = Blueprint("login", __name__)
 
 @login_bp.route("/login", methods=["GET"])
 def login():
-    pass
-    #return render_template("login.html",error=None)
+    return render_template('login/index.html')
 
-@login_bp.route("/logout", methods=["POST"])
+@login_bp.route("/logout", methods=["GET"])
 def logout():
     #logout, huy session
     pass
@@ -23,11 +22,9 @@ def auth():
     username = data["username"]
     password = data["password"]
 
-    # kiểm tra dữ liệu đầu vào
     if username == "" or password == "":
         #return render_template("login.html",error="Tên đăng nhập hoặc mật khẩu không được để trống.")
         pass
     
-    # gọi tới BLL xử lí chức năng login
     pass
     #return redirect()
