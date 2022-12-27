@@ -131,6 +131,40 @@ a {
 .height-100 {
   height: 100vh;
 }
+
+.button__action__container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.button__action__wrapper{
+  padding: 0;
+  width: 20%;
+  margin-top: 5px;
+}
+.button__action__wrapper button{
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+.button__action__wrapper  i{
+  color: #fff;
+  font-size: 0.8rem;
+}
+.button__action--eye{
+  background-color: #7B2388;
+}
+.button__action--pencil {
+  background-color: #3351C3;
+}
+.button__action--lock {
+  background-color: #23BAA3;
+}
+.button__action--track {
+  background-color: #F6290C;  
+}
+.button__action--cabinet {
+  background-color: #06951C;
+}
 @media screen and (min-width: 768px) {
   body {
     margin: calc(var(--header-height) + 1rem) 0 0 0;
