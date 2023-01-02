@@ -21,7 +21,7 @@
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
         WelcomeUser
         <div class="header_img"> <img
-                src="{% if user %}{{ user['image'] }}{% else %}{{ url_for('static', filename='img/default-user.png') }}{% endif %}"
+                src="{% if current_user %}{{ current_user['image'] }}{% else %}{{ url_for('static', filename='img/default-user.png') }}{% endif %}"
                 alt=""> </div>
     </header>
     <div class="l-navbar" id="nav-bar">

@@ -2,7 +2,7 @@
 Router xử lý cho chức năng user
 '''
 
-from flask import Blueprint, request, render_template, redirect
+from flask import Blueprint, request, render_template, redirect, g
 
 user_bp = Blueprint("user", __name__)
 
