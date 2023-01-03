@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Role</li>
+        </ol>
+    </nav>
+    <ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Danh sách Role</a>
+        
+        
+        <table id="data-table" class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Hành động</th>
+                  <th scope="col">STT</th>
+                  <th scope="col">Tên role</th>
+                  <th scope="col">Password</th>
+                  <th scope="col">Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th <form><input type="checkbox"</form> </th>
+                  <th scope="row">1</th>
+                  <td>admin</td>
+                  <td>1234</td>
+                  <td class="status badge bg-primary">Đang áp dụng</td>
+                </tr>
+                <tr>
+                  <th <form><input type="checkbox"</form> </th>
+                  <th scope="row">2</th>
+                  <td>user</td>
+                  <td>123</td>
+                  <td class="status badge bg-primary">Đang áp dụng</td>
+                </tr>
+              </tbody>
+          </table>
+      </li>   
+    </ul> 
+    
+</div>
+
+{% endblock %}

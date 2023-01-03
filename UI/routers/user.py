@@ -119,4 +119,4 @@ users =[
 
 @user_bp.route("/users", methods=["GET"])
 def list_user():
-    return render_template('users/index.html',user = users)
+    return render_template('users/index.html',user = users, page = 'user')
