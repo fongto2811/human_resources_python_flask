@@ -21,7 +21,7 @@
             </form>
             </div>
         </nav>
-        <table class="table">
+        <table id="data-table" class="table">
             <thead>
                 <tr>
                   <th scope="col">Hành động</th>
@@ -56,25 +56,7 @@
           </table>
       </li>   
     </ul> 
-    <nav aria-label="Page navigation example">
-        {% if page > 1 %}
-        <ul class="pagination justify-content-end">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-            {%for idx in range(1, page + 1)%}
-          <li class="page-item"><a class="page-link" href="#">{{idx}}</a></li>
-          {% endfor %}
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-        {% endif %}
-      </nav>
+    
 </div>
 
 {% endblock %}

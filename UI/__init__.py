@@ -26,7 +26,8 @@ def register_path(app):
     from UI.routers.login import login_bp
     from UI.routers.user import user_bp
     from UI.routers.profile import profile_bp
-
+    from UI.routers.role import role_bp
     app.register_blueprint(login_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(profile_bp)
+    app.register_blueprint(role_bp)

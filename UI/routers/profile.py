@@ -8,4 +8,4 @@ profile_bp = Blueprint("profile", __name__)
 
 @profile_bp.route("/profiles", methods=["GET"])
 def list_profile():
-    return render_template('profiles/index.html', page = 5)
+    return render_template('profiles/index.html', page = 'profile')
