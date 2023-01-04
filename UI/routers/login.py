@@ -3,6 +3,7 @@ Router xử lý cho chức năng login
 '''
 
 from flask import Blueprint, request, render_template, redirect, session
+from BLL.login import 
 
 
 login_bp = Blueprint("login", __name__)
@@ -10,6 +11,8 @@ login_bp = Blueprint("login", __name__)
 
 @login_bp.route("/login", methods=["GET"])
 def login():
+    if 'current_user' in session and session['current_user'] != None:
+        return redirect('/')
     return render_template('login/index.html')
 
 
@@ -26,14 +29,9 @@ def auth():
     password = data["password"]
 
     if username == "" or password == "":
-        # return render_template("login.html",error="Tên đăng nhập hoặc mật khẩu không được để trống.")
-        print("Tên đăng nhập hoặc mật khẩu không được để trống.")
-        return 'b'
+        return render_template('login/index.html', error="Tên đăng nhập hoặc mật khẩu không được để trống.")
 
+    
     current_user = dict()
-    current_user['image'] = "https://vcdn1-dulich.vnecdn.net/2022/09/14/4-1663171508.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=S06yaNXNAEw5yuUNPbsJYA"
-    current_user['username'] = username
-    current_user['password'] = password
-    session['current_user'] = current_user
+    
     return 'a'
-    # return redirect()

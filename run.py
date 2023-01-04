@@ -21,10 +21,8 @@ app = setup_app(
 
 @app.before_request
 def check_login():
-    print(request.path)
     if 'current_user' not in session and '/login' not in request.path:
-        return redirect(url_for("login.login"))
-
+        return redirect('/login')
 
 @app.context_processor
 def global_variables():

@@ -1,5 +1,6 @@
 from flask import Flask, session
 from flask_session import Session
+from flask_bcrypt import Bcrypt
 app = None
 
 
@@ -13,7 +14,8 @@ def setup_app(**config_overrides):
 
     # Session
     Session(app)
-
+    # Hash password
+    Bcrypt(app)
     # Định nghĩa các đường dẫn
     register_path(app)
 
