@@ -17,6 +17,13 @@ class UserDAL:
             result = cursor.fetchone()
         return result
 
+    def check_object_privilege(self, object, privilege) -> tuple:
+        with self.conn.cursor() as cursor:
+            sql = "SELECT * FROM user_tab_privs_recd WHERE table_name=:object and privilege=:privilege"
+            cursor.execute(sql, object=object, privilege=privilege)
+            result = cursor.fetchone()
+        return result
+
     def get_user_info(username, password) -> dict:
         try:
             conn = db.connect(user=config.ORACLE_SYS_USERNAME,
@@ -38,6 +45,7 @@ class UserDAL:
                     result = dict(zip(key, value))
                     if not check_password_hash(result['password'], password):
                         raise Exception('Mật khẩu không đúng.')
+            session['raw_pwd'] = password
             return result
 
         except db.DatabaseError as err:
@@ -75,3 +83,22 @@ class UserDAL:
             error = "{}".format(err)
             raise error
         return True
+
+    def list_user(self) -> list:
+        with self.conn.cursor() as cursor:
+            sql = """
+            SELECT DBA_USERS.user_id,DBA_USERS.username,DBA_USERS.default_tablespace,dba_ts_quotas.max_bytes,DBA_USERS.account_status,DBA_USERS.profile,dba_ROLE_PRIVS.granted_role
+            FROM DBA_USERS
+            LEFT JOIN dba_ts_quotas
+            ON dba_ts_quotas.tablespace_name = DBA_USERS.default_tablespace and dba_ts_quotas.username = DBA_USERS.username
+            LEFT JOIN dba_ROLE_PRIVS
+            ON dba_role_privs.grantee = DBA_USERS.username
+            """
+            cursor.execute(sql)
+            result = cursor.fetchall()
+
+            key = tuple(('id', 'username', 'tablespace',
+                         'quota', 'status', 'profile', 'role'))
+
+            list_result = [dict(zip(key, value)) for value in result]
+        return list_result
