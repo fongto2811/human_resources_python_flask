@@ -27,11 +27,11 @@ def create_user():
         if username == "" or password == "":
             pass
             # return render_template('login/index.html', error="Tên đăng nhập hoặc mật khẩu không được để trống.")
-
+        print('router')
         if UserBLL.create_user(username, password,
                                temp_table_space, table_space, quota):
             return redirect('/users')
-
+            
     except Exception as err:
-        pass
+        return err
         # return render_template('login/index.html', error=err)

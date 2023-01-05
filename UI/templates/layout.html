@@ -97,10 +97,10 @@
     </script> -->
   <script>
     var update = document.getElementById('update-form')
-    console.log(update);
+    //console.log(update);
     update.addEventListener('show.bs.modal', function (event) {
       // Button that triggered the modal
-      console.log("open");
+      //console.log("open");
       var button = event.relatedTarget
       // Extract info from data-bs-* attributes
       var recipient = button.getAttribute('data-bs-whatever')
@@ -112,31 +112,44 @@
       //
       // Update the modal's content.
       var modalTitle = update.querySelector('.modal-title')
-      var modalBodyInput = update.querySelector('.modal-body #username-update')
+      var modalBodyInputUserName = update.querySelector('.modal-body #username-update')
+      var modalBodyInputTableSpace = update.querySelector('.modal-body #table-space-update')
+      var modalBodyInputQuota = update.querySelector('.modal-body #quota-update')
+      var modalBodyInputStatus = update.querySelector('.modal-body #status-update')
+      var modalBodyInputProfile = update.querySelector('.modal-body #profile-update')
+      var modalBodyInputRole = update.querySelector('.modal-body #role-update')
 
-      modalTitle.textContent = 'Update user to ' + recipient
-      modalBodyInput.value = recipient
+      recipient = JSON.parse(recipient.replace(/None/g, '""').replace(/'/g, '"'))
+      // modalTitle.textContent = 'Update user to ' + recipi
+      console.log(recipient);
+      modalBodyInputUserName.value = recipient.username
+      modalBodyInputTableSpace.value = recipient.tablespace
+      modalBodyInputQuota.value = recipient.quota
+      modalBodyInputStatus.value = recipient.status
+      modalBodyInputProfile.value = recipient.profile
+      modalBodyInputRole.value = recipient.role
     })
   </script>
   <script>
-    var create = document.getElementById('create-form')
-    console.log(create);
-    create.addEventListener('show.bs.modal', function (event) {
+    var grant = document.getElementById('grant-form')
+    console.log(grant);
+    grant.addEventListener('show.bs.modal', function (event) {
       // Button that triggered the modal
       console.log("open");
       var button = event.relatedTarget
       // Extract info from data-bs-* attributes
       var recipient = button.getAttribute('data-bs-whatever')
+      recipient = JSON.parse(recipient.replace(/None/g, '""').replace(/'/g, '"'))
       console.log(recipient);
       // If necessary, you could initiate an AJAX request here
       // and then do the updating in a callback.
       //
       // Update the modal's content.
-      var modalTitle = create.querySelector('.modal-title')
-      var modalBodyInput = create.querySelector('.modal-body #username')
+      var modalTitle = grant.querySelector('.modal-title')
+      var modalBodyInput = grant.querySelector('.modal-body #username')
 
       // modalTitle.textContent = 'New U to ' + recipient
-      // modalBodyInput.value = recipient
+      modalBodyInput.value = recipient.username
     })
   </script>
 </body>
