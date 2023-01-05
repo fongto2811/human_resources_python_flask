@@ -13,6 +13,12 @@
     <div class="h1 pb-2 mb-4 border-bottom border-info">
       Danh sách khách hàng
     </div>
+    <div class="button__action__wrapper d-grid gap-2 d-md-block">
+      <button class="btn btn-primary button__create" data-bs-toggle="modal" data-bs-target="#create-form" data-bs-whatever={{p}}>
+        <i class='bx bxs-bullseye'></i>
+        Create
+      </button>
+    </div>
     <table id="data-table" class="table table-striped" style="width:100%">
       <thead>
         <tr>
@@ -38,13 +44,13 @@
           <td>{{p.role}}</td>
           <td>
             <div class="button__action__container ">
-              <div class="button__action__wrapper">
+              <!-- <div class="button__action__wrapper">
                 <button class=" button__action--eye " data-bs-toggle="modal" data-bs-target="#create-form" data-bs-whatever={{p}}>
                   <i class='bx bxs-bullseye'></i>
                 </button>
-              </div>
+              </div> -->
               <div class="button__action__wrapper">
-                <button class=" button__action--pencil " data-bs-toggle="modal" data-bs-target="#update-form" data-bs-whatever={{p}}>
+                <button class=" button__action--pencil " data-bs-toggle="modal" data-bs-target="#update-form" data-bs-whatever='{{p}}'>
                   <i class='bx bx-pencil'></i>
                 </button>
               </div>
@@ -59,7 +65,7 @@
                 </button>
               </div>
               <div class="button__action__wrapper">
-                <button class=" button__action--cabinet ">
+                <button class=" button__action--cabinet "  data-bs-toggle="modal" data-bs-target="#grant-form" data-bs-whatever='{{p}}'>
                   <i class='bx bx-cabinet'></i>
                 </button>
               </div>
@@ -70,6 +76,7 @@
         {%endfor%}
       </tbody>
     </table>
+    <!-- Form update user -->
     <div class="modal fade" id="update-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -112,6 +119,7 @@
         </div>
       </div>
     </div>
+    <!-- Form Create User -->
     <div class="modal fade" id="create-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -150,6 +158,39 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Form Grant Role For User -->
+    <div class="modal fade" id="grant-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Grant Role For User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Username:</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Role:</label>
+                <select class="form-select form-control" aria-label="Default select example">
+                  <option selected>Select Role</option>
+                  <option value="1">Admin</option>
+                  <option value="2">User</option>
+                  <option value="3">Other</option>
+                </select>
+              </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Grant</button>
           </div>
         </div>
       </div>

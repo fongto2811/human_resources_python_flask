@@ -193,3 +193,7 @@ a {
     padding-left: calc(var(--nav-width) + 188px);
   }
 }
+
+.button__create {
+  margin-bottom: 15px;
+}

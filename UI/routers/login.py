@@ -3,7 +3,7 @@ Router xử lý cho chức năng login
 '''
 
 from flask import Blueprint, request, render_template, redirect, session
-from BLL.login import 
+
 
 
 login_bp = Blueprint("login", __name__)
@@ -35,3 +35,8 @@ def auth():
     current_user = dict()
     
     return 'a'
+
+
+@login_bp.route("/", methods=["GET"])
+def homepage():
+    return render_template('login/homepage.html')
